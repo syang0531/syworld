@@ -20,8 +20,7 @@ syworld/
 ├── CHANGELOG.md               "## <버전>" 구간이 CurseForge 변경 내역이 된다
 ├── PUBLISHING.md              배포 절차
 ├── tools/
-│   ├── publish.py             내보낸 zip을 검사하고 CurseForge에 올린다 (표준 라이브러리만)
-│   └── gen_logo.py            로고 512x512
+│   └── publish.py             내보낸 zip을 검사하고 CurseForge에 올린다 (표준 라이브러리만)
 ├── docs/
 │   ├── 진행상황.md            다음 세션 인계
 │   └── curseforge/            등록 문구 · 로고
@@ -34,7 +33,6 @@ syworld/
 
 ```powershell
 python tools\publish.py 1.0.0 --dry-run   # 내보낸 zip 검사 (토큰 불필요)
-python tools\gen_logo.py                  # 로고 다시 그리기
 ```
 
 ## 라이선스
