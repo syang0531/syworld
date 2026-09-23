@@ -1,0 +1,69 @@
+name: Release
+
+# Push a version tag (e.g. v1.0.0) to publish that version of the pack.
+#   1. Export the pack from the CurseForge App into pack/ (its manifest version = the tag's version)
+#   2. Add a "## <version>" section to CHANGELOG.md, commit both
+#   3. git tag v1.0.0 && git push origin v1.0.0
+#
+# Or run it by hand from the Actions tab with "dry run" ticked to check an export without uploading.
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Pack version to check (e.g. 1.0.0)'
+        required: true
+      dry_run:
+        description: 'Check only, do not upload'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write   # needed to create the GitHub Release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Resolve version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check the export
+        run: python tools/publish.py ${{ steps.version.outputs.version }} --dry-run
+
+      - name: Publish to CurseForge
+        if: github.event_name == 'push' || inputs.dry_run == false
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          RELEASE_TYPE: release
+        run: python tools/publish.py ${{ steps.version.outputs.version }}
+
+      - name: Changelog and file for the GitHub Release
+        id: release
+        if: github.event_name == 'push'
+        run: |
+          python tools/publish.py ${{ steps.version.outputs.version }} --changelog > release-body.md
+          echo "file=$(python tools/publish.py ${{ steps.version.outputs.version }} --path)" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: release-body.md
+          files: ${{ steps.release.outputs.file }}

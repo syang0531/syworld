@@ -1,0 +1,12 @@
+{
+  "name": "SY World",
+  "curseforge_project_id": 0,
+  "minecraft_version": "26.2",
+  "loader": "neoforge",
+  "family": [
+    { "name": "SY Dungeon", "curseforge_project_id": 1703811, "slug": "sydungeon" },
+    { "name": "SY Village", "curseforge_project_id": 1696659, "slug": "syvillage" },
+    { "name": "SY Works",   "curseforge_project_id": 1604711, "slug": "syworks" },
+    { "name": "SY Magic",   "curseforge_project_id": 1705439, "slug": "symagic" }
+  ]
+}

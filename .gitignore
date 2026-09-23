@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# CI scratch
+release-body.md
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Claude Code (local-only)
+.claude/settings.local.json
