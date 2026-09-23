@@ -2,7 +2,7 @@
 
 **SY 모드를 한 팩으로.** 던전, 마을, 기계, 마법 — 전부 바닐라 재료로, 바닐라가 하던 일은 그대로 둔 채.
 
-Minecraft **26.2** / **NeoForge 26.2.0.88** CurseForge 모드팩. 새 SY 모드가 나오면 이 팩에 더해진다.
+Minecraft **26.2** / **NeoForge 26.2.0.88** CurseForge 모드팩 — [curseforge.com/minecraft/modpacks/syworld](https://www.curseforge.com/minecraft/modpacks/syworld). 새 SY 모드가 나오면 이 팩에 더해진다.
 
 | 모드 | 무엇을 하나 | CurseForge |
 |---|---|---|

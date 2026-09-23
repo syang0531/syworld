@@ -72,7 +72,7 @@ $env:CURSEFORGE_TOKEN = "..."; python tools\publish.py 1.0.0
 
 ## 배포 전 점검
 
-- [ ] `pack.json`의 `curseforge_project_id`가 실제 값인가 — **지금 `0`. 프로젝트 등록 후 채울 것**
+- [ ] `pack.json`의 `curseforge_project_id`가 실제 값인가 — `1708139` (slug `syworld`)
 - [ ] `CURSEFORGE_TOKEN` 시크릿이 이 저장소에 있는가 — 모드 저장소와 따로다
 - [ ] 팩에 넣은 SY 모드 버전이 전부 CurseForge에서 **승인**됐는가
 - [ ] `python tools/publish.py <버전> --dry-run`이 통과하는가

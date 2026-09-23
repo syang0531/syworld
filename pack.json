@@ -1,6 +1,7 @@
 {
   "name": "SY World",
-  "curseforge_project_id": 0,
+  "curseforge_project_id": 1708139,
+  "slug": "syworld",
   "minecraft_version": "26.2",
   "loader": "neoforge",
   "family": [
