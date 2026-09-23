@@ -38,7 +38,7 @@ gh secret set CURSEFORGE_TOKEN --repo syang0531/syworld
 ```text
 1. 앱에서 프로필을 고친다        모드 버전을 올리거나, 새 SY 모드를 추가한다
 2. 새 SY 모드라면 pack.json      "family"에 한 줄 (이름 · 프로젝트 id · slug) — 빠지면 검사가 막는다
-3. 앱에서 내보낸다               프로필 ⋯ → Export Profile. 이름 SY World, 버전 = 새 버전 → pack/ 에 저장
+3. 앱에서 내보낸다               프로필 ⋯ → Export Profile. 이름 SY World, 버전 = 새 버전, config 체크 해제 → pack/ 에 저장
 4. CHANGELOG.md                  맨 위에 "## <새 버전>" 구간
 5. 검사                          python tools/publish.py <새 버전> --dry-run
 6. 커밋 · 태그                   git add -A && git commit -m "Release <새 버전>" && git push
