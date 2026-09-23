@@ -36,3 +36,7 @@ syworld/
 python tools\publish.py 1.0.0 --dry-run   # 내보낸 zip 검사 (토큰 불필요)
 python tools\gen_logo.py                  # 로고 다시 그리기
 ```
+
+## 라이선스
+
+MIT — [LICENSE](LICENSE).
